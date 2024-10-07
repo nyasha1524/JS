@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Function</title>
+</head>
+
+<body>
+    <script>
+        //Nested Function
+
+
+        function outer() {
+            document.write("outer function <br>")
+            console.log("outer function ");
+            
+            function inner() {
+                document.write("inner function <br>")
+                console.log("inner function ");
+                
+
+                function inner1() {
+                    document.write("nested function <br>")
+                    console.log("nested function");
+                    
+                }
+                inner1()
+            }
+            inner()
+        }
+        outer()
+
+        //Closure & Currying
+
+        ///closure
+
+        function out() {
+            document.write("outer function <br>")
+            console.log("outer function ");
+             
+
+            return function() {
+                document.write("inner function <br>")
+                console.log("inner function ");
+                
+
+                return function() {
+                    document.write("nested function <br>")
+                    console.log("nested function");
+                    
+                }
+            }
+        }
+
+        const function1 = out()
+        const function2 = function1(); 
+        const function3 = function2();
+
+        // closure with argument
+
+
+        function add(a) {
+            return function (b) {
+                return function (c) {
+                    return a + b + c;
+                }
+            }
+        }
+
+        const s1 = add(11)
+        const s2 = s1(5)
+        const s3 = s2(4)
+        
+        document.write("sum = " + s3)
+        console.log("sum = "+ s3);
+        
+
+
+
+
+
+        //Carrying
+
+        const finaloutput = add(11)(23)(7)
+        document.write(" <br> sum=" + finaloutput);
+        console.log(" sum = "+finaloutput);
+        
+
+
+    </script>
+</body>
+
+</html>
